@@ -1,0 +1,13 @@
+{
+  "config": {
+    "gandi.api.key": "",
+    "gandi.api.domain": "https://api.gandi.net/v5/domain/domains/{domain}/hosts",
+    "gandi.api.update.glue.record.ip": "https://api.gandi.net/v5/domain/domains/{domain}/hosts/{ns}",
+    "domain.name": "begon.dev",
+    "domain.ns": "ns",
+    "url.ip.address": "https://api.myip.com",
+    "path.zone.template": "/home/etienne/dnsupdate/zone.template",
+    "path.zone.dns": "/var/named/zone.begon.dev",
+    "cmd.restart.dns": "systemctl restart named"
+  }
+}
