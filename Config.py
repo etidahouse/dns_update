@@ -1,3 +1,16 @@
+CONFIG_FILE_NAME = 'config.json'
+CONFIG_OBJECT = 'config'
+CONFIG_ATTR_API_KEY = "gandi.api.key"
+CONFIG_ATTR_API_DOMAIN = "gandi.api.domain"
+CONFIG_ATTR_DOMAIN_NAME = "domain.name"
+CONFIG_ATTR_API_NS = "gandi.api.update.glue.record.ip"
+CONFIG_ATTR_DOMAIN_NS = "domain.ns"
+CONFIG_ATTR_URL_IP_ADDRESS = "url.ip.address"
+CONFIG_ATTR_ZONE_TEMPLATE_PATH = "path.zone.template"
+CONFIG_ATTR_ZONE_DNS_PATH = "path.zone.dns"
+CONFIG_ATTR_CMD_RESTART_DNS = "cmd.restart.dns"
+
+
 class Configuration:
 
     def __init__(self, api_key, api_domain, domain_name, api_ns, domain_ns, url_ip_address, zone_template_path,
