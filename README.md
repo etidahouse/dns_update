@@ -19,7 +19,19 @@ All actions are logged. If a request raises an exception, the script goes to sle
 
 You can modify the logging system via the logging.ini file
 
-## Deployement
+## Deployment
+
+### Automatic installation
+
+Shell script to get the git repository in `/opt/dns_update` (install git if needed), install `Python3.8` and `bind9`. 
+
+Also, a service file is added to the systemd services files. All you have to do is run `systemd start dns_update` to start the DNS update script.
+
+After that, all you have to do is to set up the `config.json` file in order to successfully launch the dns update script
+
+```shell
+curl -s https://raw.githubusercontent.com/etidahouse/dns_update/main/set_up.sh | bash
+```
 
 ### Install Part - pre-requisites 
 
