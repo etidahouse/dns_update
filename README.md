@@ -1,12 +1,23 @@
 # dns_update
 
+The objective of this script is to update the DNS zone, restart the DNS service within the machine, update the Gandi glue record, and perform checks when the IP is different from the glue record
 
+The script works in different steps:
+1. Read the configuration files (config.json, logging.ini)
+2. Check that the script has the right to read the DNS template zone file and the right to write the new zone within the DNS
+3. Retrieve the public ip from the internet output stream by retrieving the information via https://api.myip.com
+4. Recover the IP of the glue record within Gandi
+5. Compare the 2 IPs
+6. If the IPs are identical, the script will sleep for x minutes as defined by the configuration file via the `redo` variable before running the script again
+7. If the IPs are different, the glue record within Gandi is updated
+8. the template zone is loaded
+9. The template zone is modified with a new serial number, the new IP
+10. The new zone is written to the DNS zone directory
+11. The DNS service is restarted
 
+All actions are logged. If a request raises an exception, the script goes to sleep and waits x minutes defined by the `sleep_time` variable before restarting. 
 
-
-
-
-
+You can modify the logging system via the logging.ini file
 
 ## Deployement
 
@@ -38,7 +49,7 @@ The project can be configured via different configuration files (`config.json`, 
 
 ### 1. App Configuration
 
-The `config.json` file placed in the source folder is used to set up the `elastic` server host and certain application behaviours.
+The `config.json` file placed in the source folder is used to set up parameters for the script.
 The `config.json` file is made up as follows.
 
 ```json
@@ -49,7 +60,6 @@ The `config.json` file is made up as follows.
     "domain_name": "domain-name.com",
     "domain_ns": "ns",
     "url_ip_address": "https://api.myip.com",
-    "zone_template_path": "/path/to/dnsupdate/zone.template",
     "zone_dns_path": "/var/named/zone.my-domain.com",
     "cmd_restart_dns": "systemctl restart named",
     "redo": 10,
@@ -59,7 +69,17 @@ The `config.json` file is made up as follows.
 ```
 
 Variable details :
-
+- `api_key` : Represents the API KEY provided by Gandi to access these APIs
+- `api_domain` : This route is used to find and return information about a domain to which you have permissions via Gandi API
+- `api_ns` : This route returns information on a specific glue record for the given domain via Gandi API
+- `domain_name` : Your domain name
+- `domain_ns` : Your ns name
+- `url_ip_address` : URL address to know your public ip
+- `zone_template_path` : 
+- `zone_dns_path` : Path of the directory where the DNS zone file will be written. This directory is the one used by your DNS to store the zones
+- `cmd_restart_dns` : Represents the command to restart the DNS service 
+- `redo` : Represents the time in minutes before the script is re-executed 
+- `sleep_time` : Represents the time in minutes before the script is re-executed due to an error (e.g. no internet connection)
 
 ### 2. Logging Configuration
 
@@ -121,7 +141,7 @@ $ORIGIN ${DOMAIN.NAME}.
         IN          MX      10 spool.mail.gandi.net.
 begon.dev.          A       ${IP}
 ns      IN          A       ${IP}
-mail    IN          A       ${MAIL.IP}
+mail    IN          A       ${IP}
 www     CNAME               ${DOMAIN.NAME}.
 ftp     CNAME               ${DOMAIN.NAME}.
 cloud   CNAME               ${DOMAIN.NAME}.
