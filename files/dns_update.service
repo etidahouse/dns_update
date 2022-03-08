@@ -5,4 +5,4 @@ Description=dns_update
 ExecStart=/usr/bin/python3 /opt/dns_update/main.py
 
 [Install]
-WantedBy=multi-user.targe
+WantedBy=multi-user.target
