@@ -1,5 +1,5 @@
 import time
-import Config
+import Configuration
 import logging
 
 
@@ -31,7 +31,7 @@ def write_zone(zone_file: str, zone_value: str):
     fo.close()
 
 
-def change_zone_dns(ip: str, conf: Config):
+def change_zone_dns(ip: str, conf: Configuration):
     zone = read_zone_template(conf.zone_template_path)
     zone = config_zone(zone, ip)
     write_zone(conf.zone_dns_path, zone)
