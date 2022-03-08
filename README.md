@@ -43,6 +43,15 @@ pip install pydantic
 Please do not forget to refer to the official documentation : 
 - https://pydantic-docs.helpmanual.io/ 
 
+### Gandi
+
+Please do not forget to refer to the official Gandi API documentation : 
+- https://api.gandi.net/docs/
+
+Get API Key (go to security part) :
+- https://account.gandi.net/
+
+
 ## Settings Part
 
 The project can be configured via different configuration files (`config.json`, `logging.ini`)
