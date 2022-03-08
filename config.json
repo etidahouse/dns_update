@@ -1,13 +1,13 @@
 {
-  "config": {
-    "gandi.api.key": "",
-    "gandi.api.domain": "https://api.gandi.net/v5/domain/domains/{domain}/hosts",
-    "gandi.api.update.glue.record.ip": "https://api.gandi.net/v5/domain/domains/{domain}/hosts/{ns}",
-    "domain.name": "begon.dev",
-    "domain.ns": "ns",
-    "url.ip.address": "https://api.myip.com",
-    "path.zone.template": "/home/etienne/dnsupdate/zone.template",
-    "path.zone.dns": "/var/named/zone.begon.dev",
-    "cmd.restart.dns": "systemctl restart named"
-  }
+    "api_key": "ALvbu1ej1Kyu0mxhyl4OGRFa",
+    "api_domain": "https://api.gandi.net/v5/domain/domains/{domain}/hosts",
+    "api_ns": "https://api.gandi.net/v5/domain/domains/{domain}/hosts/{ns}",
+    "domain_name": "begon.dev",
+    "domain_ns": "ns",
+    "url_ip_address": "https://api.myip.com",
+    "zone_template_path": "/home/etienne/dnsupdate/zone.template",
+    "zone_dns_path": "/var/named/zone.begon.dev",
+    "cmd_restart_dns": "systemctl restart named",
+    "redo": 10,
+    "sleep_time": 5
 }
