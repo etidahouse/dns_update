@@ -2,15 +2,14 @@
 
 git_version=$(git --version)
 
-if [[ "${git_version}" == *"git version"* ]]; then
+if [[ "${git_version}" != *"git version"* ]]; then
   echo "Installing Git"
-  apt install git
+  sudo apt install git
 fi
 
-cd /opt/
-git clone https://github.com/etidahouse/dns_update.git dns_update
-
 echo "Git clone to /opt/dns_update/"
+cd /opt/
+sudo git clone https://github.com/etidahouse/dns_update.git dns_update
 
 py_version=$(python3 -V);
 
