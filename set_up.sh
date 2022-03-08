@@ -1,5 +1,17 @@
 #!/bin/shell
 
+git_version=$(git --version)
+
+if [[ "${git_version}" == *"git version"* ]]; then
+  echo "Installing Git"
+  apt install git
+fi
+
+cd /opt/
+git clone https://github.com/etidahouse/dns_update.git dns_update
+
+echo "Git clone to /opt/dns_update/"
+
 py_version=$(python3 -V);
 
 if [[ "${py_version}" == *"3.8"* ]]; then
@@ -21,3 +33,5 @@ if [[ "${bind9_version}" != *"BIND"* ]]; then
   echo "Installing bind9"
   sudo apt install bind9
 fi
+
+echo "The setup is complete"
