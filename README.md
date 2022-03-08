@@ -10,7 +10,7 @@ The script works in different steps:
 5. Compare the 2 IPs
 6. If the IPs are identical, the script will sleep for x minutes as defined by the configuration file via the `redo` variable before running the script again
 7. If the IPs are different, the glue record within Gandi is updated
-8. the template zone is loaded
+8. The template zone is loaded
 9. The template zone is modified with a new serial number, the new IP
 10. The new zone is written to the DNS zone directory
 11. The DNS service is restarted
@@ -27,7 +27,7 @@ Shell script to get the git repository in `/opt/dns_update` (install git if need
 
 Also, a service file is added to the systemd services files. All you have to do is run `systemd start dns_update` to start the DNS update script.
 
-After that, all you have to do is to set up the `config.json` file in order to successfully launch the dns update script
+After that, all you have to do is to set up the `config.json` and the `zone.template` files in order to successfully launch the dns update script
 
 ```shell
 curl -s https://raw.githubusercontent.com/etidahouse/dns_update/main/set_up.sh | bash
@@ -146,6 +146,12 @@ args=(sys.stdout,)
 ```
 
 ### 3. zone.template
+
+Here is an example of a zone file.
+Three variables are edited by the script:
+1. ${IP}: via the IP retrieved by the API 
+2. ${DOMAIN.NAME} : via the domain_name property of the `config.json` file
+3. ${SN} : a serial number is generated when writing the zone file in the format yyyymmddhh
 
 ```
 $TTL 86400
