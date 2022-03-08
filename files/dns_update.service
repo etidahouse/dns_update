@@ -1,0 +1,8 @@
+[Unit]
+Description=dns_update
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/dns_update/main.py
+
+[Install]
+WantedBy=multi-user.targe
