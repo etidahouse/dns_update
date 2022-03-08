@@ -15,7 +15,7 @@ The script works in different steps:
 10. The new zone is written to the DNS zone directory
 11. The DNS service is restarted
 
-All actions are logged. If a request raises an exception, the script goes to sleep and waits x minutes defined by the `sleep_time` variable before restarting. 
+All actions are logged. If a request raises an exception, the script goes to sleep and waits x minutes defined by the `redo` variable before restarting. 
 
 You can modify the logging system via the logging.ini file
 
