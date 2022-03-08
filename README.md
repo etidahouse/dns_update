@@ -108,24 +108,24 @@ args=(sys.stdout,)
 
 ```
 $TTL 86400
-$ORIGIN begon.dev.
-@ IN SOA ns.begon.dev. hostmaster.begon.dev. (
+$ORIGIN ${DOMAIN.NAME}.
+@ IN SOA ns.${DOMAIN.NAME}. hostmaster.${DOMAIN.NAME}. (
    {SN}   ; sn
         10800   ; refresh (3 heures)
           600   ; retry (10 minutes)
       1814400   ; expiry (3 semaines)
         10800   ; minimum (3 heures)
  )
-        IN          NS      ns.begon.dev.
+        IN          NS      ns.${DOMAIN.NAME}.
         IN          NS      ns6.gandi.net.
         IN          MX      10 spool.mail.gandi.net.
 begon.dev.          A       ${IP}
 ns      IN          A       ${IP}
 mail    IN          A       ${MAIL.IP}
-www     CNAME               begon.dev.
-ftp     CNAME               begon.dev.
-cloud   CNAME               begon.dev.
-ssh     CNAME               begon.dev.
+www     CNAME               ${DOMAIN.NAME}.
+ftp     CNAME               ${DOMAIN.NAME}.
+cloud   CNAME               ${DOMAIN.NAME}.
+ssh     CNAME               ${DOMAIN.NAME}.
 ```
 
 ## Run
@@ -138,13 +138,13 @@ The main of the application is located in the file `main.py`. You just have to l
 
 ## Create systemd service
 
+Create an new systemd service :
+
 ```bash
 touch /etc/systemd/system/dns_update.service
 ```
 
 Edit the service file : 
-
-Create an new systemd service :
 
 ```
 [Unit]
