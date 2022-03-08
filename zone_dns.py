@@ -1,12 +1,13 @@
 import time
 import Configuration
 import logging
+import pathlib
 
 
-def read_zone_template(zone_template_path: str):
+def read_zone_template():
     logger = logging.getLogger(__name__)
     logger.info("Read Zone Template file...")
-    zone_file = open(zone_template_path, 'r')
+    zone_file = open(str(pathlib.Path().resolve()) + "/" + 'files/zone.template', 'r')
     value = zone_file.read()
     zone_file.close()
     return value
@@ -34,6 +35,6 @@ def write_zone(zone_file: str, zone_value: str):
 
 
 def change_zone_dns(ip: str, conf: Configuration):
-    zone = read_zone_template(conf.zone_template_path)
+    zone = read_zone_template()
     zone = config_zone(zone, ip, conf)
     write_zone(conf.zone_dns_path, zone)

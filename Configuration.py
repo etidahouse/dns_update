@@ -15,7 +15,6 @@ class Configuration(BaseModel):
     domain_name: str
     domain_ns: str
     url_ip_address: str
-    zone_template_path: str
     zone_dns_path: str
     cmd_restart_dns: str
     redo: int

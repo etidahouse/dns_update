@@ -5,7 +5,6 @@
     "domain_name": "begon.dev",
     "domain_ns": "ns",
     "url_ip_address": "https://api.myip.com",
-    "zone_template_path": "/home/etienne/dnsupdate/zone.template",
     "zone_dns_path": "/var/named/zone.begon.dev",
     "cmd_restart_dns": "systemctl restart named",
     "redo": 10,
