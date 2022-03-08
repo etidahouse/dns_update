@@ -1,4 +1,4 @@
-# dns_update
+# dns_update for bind9 DNS and Gandi Glue Record
 
 The objective of this script is to update the DNS zone, restart the DNS service within the machine, update the Gandi glue record, and perform checks when the IP is different from the glue record
 
