@@ -30,7 +30,7 @@ Also, a service file is added to the systemd services files. All you have to do 
 After that, all you have to do is to set up the `config.json` and the `zone.template` files in order to successfully launch the dns update script
 
 ```shell
-curl -s https://raw.githubusercontent.com/etidahouse/dns_update/main/set_up.sh | bash
+curl -s -o set_up.sh https://raw.githubusercontent.com/etidahouse/dns_update/main/set_up.sh && bash set_up.sh
 ```
 
 ### Install Part - pre-requisites 
@@ -54,6 +54,12 @@ pip install pydantic
 
 Please do not forget to refer to the official documentation : 
 - https://pydantic-docs.helpmanual.io/ 
+
+### requests and schedule
+
+```bash
+pip install requests schedule
+```
 
 ### Gandi
 
@@ -201,7 +207,7 @@ Description=dns_update
 ExecStart=/usr/bin/python3 /path/to/the/project/dns_update/main.py
 
 [Install]
-WantedBy=multi-user.targe
+WantedBy=multi-user.target
 ```
 
 Start the systemd service :
