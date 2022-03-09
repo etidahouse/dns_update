@@ -1,7 +1,7 @@
 $TTL 86400
 $ORIGIN ${DOMAIN.NAME}.
 @ IN SOA ns.${DOMAIN.NAME}. hostmaster.${DOMAIN.NAME}. (
-   {SN}   ; sn
+   ${SN}   ; sn
         10800   ; refresh (3 heures)
           600   ; retry (10 minutes)
       1814400   ; expiry (3 semaines)
