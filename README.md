@@ -55,6 +55,12 @@ pip install pydantic
 Please do not forget to refer to the official documentation : 
 - https://pydantic-docs.helpmanual.io/ 
 
+### requests and schedule
+
+```bash
+pip install requests schedule
+```
+
 ### Gandi
 
 Please do not forget to refer to the official Gandi API documentation : 
