@@ -30,7 +30,7 @@ Also, a service file is added to the systemd services files. All you have to do 
 After that, all you have to do is to set up the `config.json` and the `zone.template` files in order to successfully launch the dns update script
 
 ```shell
-curl -s https://raw.githubusercontent.com/etidahouse/dns_update/main/set_up.sh | bash
+curl -s -o set_up.sh https://raw.githubusercontent.com/etidahouse/dns_update/main/set_up.sh && bash set_up.sh
 ```
 
 ### Install Part - pre-requisites 
