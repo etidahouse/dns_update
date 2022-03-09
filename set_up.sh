@@ -12,8 +12,7 @@ cd /opt/
 sudo git clone https://github.com/etidahouse/dns_update.git dns_update
 
 echo "Installing Python3.8 ?[O/n]"
-read py_install
-
+read -n py_install
 if [[ "${py_install,,}" == "o" ]]; then
   echo "Checking Python version"
   py_version=$(python3 -V);
@@ -32,7 +31,7 @@ if [[ "${py_install,,}" == "o" ]]; then
 fi
 
 echo "Installing bind9 ?[O/n]"
-read bind9_install
+read -n bind9_install
 if [[ "${bind9_install,,}" == "o" ]]; then
   echo "Checking bind9"
   bind9_version=$(dpkg -l bind9)
@@ -43,7 +42,7 @@ if [[ "${bind9_install,,}" == "o" ]]; then
 fi
 
 echo "Create systemd dns_update service ?[O/n]"
-read dns_update_service
+read -n dns_update_service
 if [[ "${dns_update_service,,}" == "o" ]]; then
   cd /etc/systemd/system/
   sudo curl https://raw.githubusercontent.com/etidahouse/dns_update/main/files/dns_update.service -o dns_update.service
