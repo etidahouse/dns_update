@@ -17,6 +17,7 @@ if [[ "${py_install,,}" == "o" ]]; then
   py_version=$(python3 -V);
   if [[ "${py_version}" == *"3.8"* ]]; then
     echo "Python 3.8 already installed"
+    sudo apt install python3-pip
     python3 -m pip install --upgrade pip
     pip install pydantic
   else
@@ -25,6 +26,7 @@ if [[ "${py_install,,}" == "o" ]]; then
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt install python3.8
+    sudo apt install python3-pip
     pip install pydantic
   fi
 fi
