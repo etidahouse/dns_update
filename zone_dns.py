@@ -1,13 +1,13 @@
 import time
 import Configuration
 import logging
-import pathlib
+import os
 
 
 def read_zone_template():
     logger = logging.getLogger(__name__)
     logger.info("Read Zone Template file...")
-    zone_file = open(str(pathlib.Path().resolve()) + "/" + 'files/zone.template', 'r')
+    zone_file = open(str(os.path.dirname(os.path.abspath(__file__))) + "/" + 'files/zone.template', 'r')
     value = zone_file.read()
     zone_file.close()
     return value

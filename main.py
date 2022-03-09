@@ -40,5 +40,5 @@ def action(conf: Configuration):
 
 
 if __name__ == '__main__':
-    logging.config.fileConfig(str(pathlib.Path().resolve()) + "/" + 'files/logging.ini')
+    logging.config.fileConfig(str(os.path.dirname(os.path.abspath(__file__))) + "/" + 'files/logging.ini')
     main()
