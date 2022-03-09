@@ -201,7 +201,7 @@ Description=dns_update
 ExecStart=/usr/bin/python3 /path/to/the/project/dns_update/main.py
 
 [Install]
-WantedBy=multi-user.targe
+WantedBy=multi-user.target
 ```
 
 Start the systemd service :
