@@ -87,7 +87,7 @@ The `config.json` file is made up as follows.
     "domain_name": "domain-name.com",
     "domain_ns": "ns",
     "url_ip_address": "https://api.myip.com",
-    "zone_dns_path": "/var/named/zone.my-domain.com",
+    "zone_dns_path": "/var/named/",
     "cmd_restart_dns": "systemctl restart named",
     "redo": 10,
     "sleep_time": 5
