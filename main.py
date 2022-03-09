@@ -11,7 +11,7 @@ def main():
     logger = logging.getLogger(__name__)
     logger.info("Starting...")
     conf: Configuration = read_configuration()
-    check_file_permission(conf.zone_template_path, os.R_OK)
+    check_file_permission(str(os.path.dirname(os.path.abspath(__file__))) + "/files/zone.template", os.R_OK)
     check_directory_permission(conf.zone_dns_path, os.W_OK)
     schedule.every(conf.redo).minutes.do(action, conf)
     while True:
