@@ -52,6 +52,9 @@ if [[ "${dns_update_service,,}" == "o" ]]; then
   sudo systemctl enable dns_update
 fi
 
+echo "Adding /var/log/dns_update/ directory (logginig.ini store)"
+mkdir -p "/var/log/dns_update/"
+
 echo "---------------------------------------------------------------------------------"
 echo "The setup is complete."
 echo "---------------------------------------------------------------------------------"
