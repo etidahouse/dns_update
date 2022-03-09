@@ -20,6 +20,8 @@ if [[ "${py_install,,}" == "o" ]]; then
     sudo apt install python3-pip
     python3 -m pip install --upgrade pip
     pip install pydantic
+    pip install requests 
+    pip install schedule
   else
     echo "Installing Python 3.8"
     sudo apt update
@@ -28,6 +30,8 @@ if [[ "${py_install,,}" == "o" ]]; then
     sudo apt install python3.8
     sudo apt install python3-pip
     pip install pydantic
+    pip install requests 
+    pip install schedule
   fi
 fi
 
