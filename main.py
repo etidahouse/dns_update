@@ -5,7 +5,6 @@ import time
 import logging.config
 from Configuration import *
 import schedule
-import pathlib
 
 
 def main():

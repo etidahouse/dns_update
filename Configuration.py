@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 import logging
-import pathlib
 import json
 import traceback
 import os
@@ -26,7 +25,7 @@ def read_configuration() -> Configuration:
     logger.debug("Read configuration file...")
 
     try:
-        file = open(str(pathlib.Path().resolve()) + "/" + CONFIG_FILE_NAME, "r")
+        file = open(str(os.path.dirname(os.path.abspath(__file__))) + "/" + CONFIG_FILE_NAME, "r")
         data = json.load(file)
         conf: Configuration = Configuration(**data)
 
