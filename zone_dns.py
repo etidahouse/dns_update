@@ -21,8 +21,8 @@ def config_zone(zone_value: str, ip: str, conf: Configuration):
     serial = time.strftime('%Y%m%d%H')
     logger.info('Serial Number write in zone_value : ' + serial)
     zone_value = zone_value.replace('${SN}', serial)
-    logger.info("Domain name value is : " + conf.domaine_name)
-    zone_value = zone_value.replace("${DOMAIN.NAME}", conf.domaine_name)
+    logger.info("Domain name value is : " + conf.domain_name)
+    zone_value = zone_value.replace("${DOMAIN.NAME}", conf.domain_name)
     return zone_value
 
 
@@ -37,4 +37,4 @@ def write_zone(zone_directory: str, zone_value: str, domain_name: str):
 def change_zone_dns(ip: str, conf: Configuration):
     zone = read_zone_template()
     zone = config_zone(zone, ip, conf)
-    write_zone(conf.zone_dns_path, zone, conf.domaine_name)
+    write_zone(conf.zone_dns_path, zone, conf.domain_name)
