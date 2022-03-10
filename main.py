@@ -26,16 +26,15 @@ def main():
 
 def action(conf: Configuration):
     logger = logging.getLogger(__name__)
-    while 1:
-        new_ip = dns_update.dns_update(conf)
-        if new_ip:
-            logger.info('Change DNS zone file...')
-            zone_dns.change_zone_dns(dns_update.get_ip_address(conf.url_ip_address), conf)
-            logger.info('Restart DNS service...')
-            os.system(conf.cmd_restart_dns)
-            logger.info('End of update.')
-        else:
-            logger.info('End of update.')
+    new_ip = dns_update.dns_update(conf)
+    if new_ip:
+        logger.info('Change DNS zone file...')
+        zone_dns.change_zone_dns(dns_update.get_ip_address(conf.url_ip_address), conf)
+        logger.info('Restart DNS service...')
+        os.system(conf.cmd_restart_dns)
+        logger.info('End of update.')
+    else:
+        logger.info('End of update.')
 
 
 if __name__ == '__main__':
