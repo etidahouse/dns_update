@@ -29,7 +29,7 @@ def config_zone(zone_value: str, ip: str, conf: Configuration):
 def write_zone(zone_directory: str, zone_value: str, domain_name: str):
     logger = logging.getLogger(__name__)
     logger.info("Write zone dns  " + zone_directory + "." + domain_name)
-    fo = open(zone_directory + "." + domain_name, "w")
+    fo = open(zone_directory + "zone." + domain_name, "w")
     fo.write(zone_value)
     fo.close()
 
