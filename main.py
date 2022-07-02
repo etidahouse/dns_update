@@ -17,6 +17,7 @@ def main():
     while True:
         try:
             schedule.run_pending()
+            time.sleep(conf.sleep_time * 60)
         except Exception as ex:
             logger.error('%s \n\t %s', ex, traceback.format_exc())
             logger.info("Sleep for " + conf.sleep_time + " minutes")
